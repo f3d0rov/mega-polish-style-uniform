@@ -7,14 +7,12 @@ module alu (
   output logic [31:0]  result_o
 );
 
-import alu_opcodes_pkg::*;    // РёРјРїРѕСЂС‚ РїР°СЂР°РјРµС‚СЂРѕРІ, СЃРѕРґРµСЂР¶Р°С‰РёС…
-                              // РєРѕРґС‹ РѕРїРµСЂР°С†РёР№ РґР»СЏ РђР›РЈ
-logic cmp, mod;
-logic[2:0] opcode ;
-
+import alu_opcodes_pkg::*;    // импорт параметров, содержащих
+                              // коды операций для АЛУ
+logic cmp;
 assign cmp = alu_op_i [4];
-logic [31:0] adder_sum;
 
+logic [31:0] adder_sum;
 fulladder32 adder ( // Adder for the sum operation
     .a_i (a_i),
     .b_i (b_i),
